@@ -1,0 +1,92 @@
+@baseUrl =http://localhost:3000/adminPanel
+
+@refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWZyZXNoVG9rZW5JZCI6Njk5NzExLCJvd25lcklkIjo4LCJpYXQiOjE2NjQxNDE0NDUsImV4cCI6MTY2NDIyNzg0NSwiaXNzIjoiUHJpbWV4b3AuY29tIn0.UObJH0X5oH7Z2Zp02Ql5m3sMthElekG7t5mvMAZiu2E
+@accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvd25lcklkIjo4LCJpYXQiOjE2NjQyMTExMjcsImV4cCI6MTY2NDIxMTcyNywiaXNzIjoiUHJpbWV4b3AuY29tIn0.W5VySAmzI88PibDB5w1Rh46TEu2J7vqBwOeJa0kI64g
+GET {{baseUrl}}/test
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### Register
+POST {{baseUrl}}/auth/register
+content-type: application/json
+
+{
+    "appName":"My Tournament_1 >😍",
+    "ownerName":"Adarsh Hatkar   ",
+    "email":"Rajeadarsh15@gmail.com",
+    "password":"7875753356",
+    "referralCode":"  "
+}
+
+
+### login 
+POST {{baseUrl}}/auth/login
+content-type: application/json
+
+{
+    "email":"Rajeadarsh15@gmail.com",
+    "password":"7875753356"
+}
+
+### refresh access token 
+GET {{baseUrl}}/auth/refresh-token
+content-type: application/json
+Authorization: Bearer {{refreshToken}}
+
+### get basic details about app
+GET {{baseUrl}}/basic/
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### initiating transaction
+POST {{baseUrl}}/paytm/init
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "txnAmount":1,
+    "clientLocationUrl":"primexop.com"
+}
+
+### get basic details about app
+GET {{baseUrl}}/wallet/walletHistory/0/10
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### get all users
+GET {{baseUrl}}/users/
+content-type: application/json
+Authorization: Bearer {{accessToken}}  
+
+### get all redeem requests
+GET {{baseUrl}}/users/allRedeemRequests
+content-type: application/json
+Authorization: Bearer {{accessToken}}  
+### get all redeem requests
+POST {{baseUrl}}/users/updateRedeemRequest
+content-type: application/json
+Authorization: Bearer {{accessToken}}  
+
+{
+    "sn":1,
+    "action":"SUCCESS",
+    "comment":"primexop.com"
+}
+### get all redeem requests
+GET {{baseUrl}}/basic/deleteSupportMethod/1
+content-type: application/json
+Authorization: Bearer {{accessToken}}  
+### get dashbord data
+GET {{baseUrl}}/basic/getDashboardData
+content-type: application/json
+Authorization: Bearer {{accessToken}}  
+
+### get all redeem requests
+POST {{baseUrl}}/basic/pushWebApkNotification
+content-type: application/json
+Authorization: Bearer {{accessToken}}  
+
+{
+    
+    "message":"hello to  test "
+} 

@@ -1,0 +1,17 @@
+{
+  "restartable": "rs",
+  "colors": true,
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "dist/**"
+  ],
+  "verbose": true,
+  "execMap": {},
+  "events": {},
+  "watch": [],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js,json,env,http,ts"
+}
