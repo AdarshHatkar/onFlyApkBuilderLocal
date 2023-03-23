@@ -2,10 +2,10 @@
   "name": "on_fly_apk_builder_local",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/app.js",
   "type": "module",
   "scripts": {
-    "dev": " nodemon -q app.js ",
+    "dev": " nodemon -q src/app.js ",
     "watch": "tsc --watch ",
     "start": "npm run prisma_init && npm run build",
     "dev_old": "npm run prisma_init && nodemon .",

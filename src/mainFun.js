@@ -11,18 +11,12 @@ const __dirname = dirname(__filename);
 export let mainFun = () => {
     console.log("hello world");
    
-    // exec('gradle --version', (err, stdout, stderr) => {
-    //     if (err) {
-    //       console.error(err);
-    //       return;
-    //     }
-    //     console.log(stdout);
-    //   });
+ 
 
 
 
 // Set the path to the Android app source code directory
-const appDir = join(__dirname, 'gaming_app_apk_v103');
+const appDir = join(__dirname, '../gaming_app_apk_v103');
 
 
 
@@ -40,6 +34,8 @@ exec(command, (error, stdout, stderr) => {
   console.log(`Command output: ${stdout}`);
   
   // APK file generated, do something with it here
+
+  console.log("apk generated");
 });
 
   

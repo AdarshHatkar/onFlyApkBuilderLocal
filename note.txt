@@ -1,0 +1,4 @@
+org.gradle.java.home=../gradelJDK11
+
+
+add this file in gradel.properties
