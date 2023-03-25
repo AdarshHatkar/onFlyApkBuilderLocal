@@ -4,6 +4,7 @@ import process from "node:process";
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { copyFile, fsync, readFile, rename, writeFile } from "node:fs";
+import { copyFolderSync } from "./helpers/copyFolder.js";
 const xml2js = require('xml2js');
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -22,12 +23,16 @@ export let mainFun =  () => {
 
 
   // android source code location
-  const appSourceCodeDir = join(__dirname, '../gaming_app_apk_v103');
-  const debugApkDir = join(__dirname, '../gaming_app_apk_v103/app/build/outputs/apk/debug');
-  const outputApksDir = join(__dirname, '../outputApks');
-  let stringXmlPath = join(__dirname, '../gaming_app_apk_v103/app/src/main/res/values/strings.xml');
+  const originalAppSourceCodeDir = join(__dirname, '../gaming_app_apk_v103');
+  const newAppSourceCodeDir = join(__dirname, '../appSourceCode');
+  const debugApkDir = join(newAppSourceCodeDir, '/app/build/outputs/apk/debug');
+  const outputApksDir = join(newAppSourceCodeDir, '../outputApks');
+  let stringXmlPath = join(newAppSourceCodeDir, '/app/src/main/res/values/strings.xml');
   //console.log(appSourceCodeDir);
 
+
+  /*creating copy of original source code */
+  copyFolderSync(originalAppSourceCodeDir,newAppSourceCodeDir)
   /* Change app name */
 
   // Read the strings.xml file
@@ -72,7 +77,7 @@ export let mainFun =  () => {
 
   console.log("Start apk generation");
 
-  const command = `cd ${appSourceCodeDir} && gradlew assembleDebug`;
+  const command = `cd ${newAppSourceCodeDir} && gradlew --daemon  :app:assembleDebug `;
 
   exec(command, (error, stdout, stderr) => {
     if (error) {
@@ -80,8 +85,15 @@ export let mainFun =  () => {
       return;
     }
     if (stderr) {
+      
       console.error(`Command error: ${stderr}`);
-      return;
+   //   console.log({stderr});
+      if(stderr.includes("-Xlint:deprecation ")){
+
+      }else{
+         return;
+      }
+      
     }
     console.log(`Command output: ${stdout}`);
 
