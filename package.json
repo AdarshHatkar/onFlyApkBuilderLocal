@@ -6,12 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "node src/app.js ",
-    "watch": "tsc --watch ",
-    "start": "npm run prisma_init && npm run build",
-    "dev_old": "npm run prisma_init && nodemon .",
-    "prisma_init": "npx prisma db pull && npx prisma generate",
-    "prisma_studio": "npx prisma studio",
-    "build": "tsc && node .",
+   
+
     "dev-nodemon": " nodemon -q src/app.js ",
     "checkPackageUpdates": "ncu -u",
     "checkUnusedPackages": "depcheck"
