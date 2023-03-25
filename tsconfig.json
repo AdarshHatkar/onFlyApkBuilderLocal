@@ -1,4 +1,4 @@
-{
+{ 
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
     /* Projects */
@@ -95,6 +95,9 @@
   "exclude": [
     "./outputApks",
     "./gradleJDK11",
+    "./gaming_app_apk_v103",
+    "./appSourceCode",
+    "./appLogos",
     "./dist"
   ]
 }
