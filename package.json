@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "dev": "node src/app.js ",
-  
     "watch": "tsc --watch ",
     "start": "npm run prisma_init && npm run build",
     "dev_old": "npm run prisma_init && nodemon .",
@@ -43,6 +42,7 @@
     "swagger-ui-express": "^4.6.2",
     "systeminformation": "^5.17.12",
     "trpc-openapi": "^1.1.2",
+    "xml2js": "^0.4.23",
     "zod": "^3.21.4"
   },
   "devDependencies": {
