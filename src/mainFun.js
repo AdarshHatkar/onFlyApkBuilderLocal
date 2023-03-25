@@ -3,7 +3,7 @@ import { exec } from "node:child_process";
 import process from "node:process";
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { copyFile, fsync, readFile, rename, writeFile } from "node:fs";
+import { appendFileSync, copyFile, fsync, readFile, rename, writeFile } from "node:fs";
 import { copyFolderSync } from "./helpers/copyFolder.js";
 const xml2js = require('xml2js');
 const __filename = fileURLToPath(import.meta.url);
@@ -15,24 +15,34 @@ export let mainFun =  () => {
 
   console.log("Script Started-------------------");
 
-  let packageName = 'com.gaming_apk.web_apk';
+  let newApplicationId = 'com.gaming_apk.web_apk';
   let userName = 'gaming_apk';
   let apkName = 'Gaming Apk';
   let version = 10300;
 
+  const oldApplicationId = 'com.gaming_apk_v_103.web_apk';
 
 
   // android source code location
   const originalAppSourceCodeDir = join(__dirname, '../gaming_app_apk_v103');
   const newAppSourceCodeDir = join(__dirname, '../appSourceCode');
+  const gradlePropertiesFile = join(newAppSourceCodeDir, 'gradle.properties');
+  const appBuild_GradleFile = join(newAppSourceCodeDir, '/app/build.gradle');
   const debugApkDir = join(newAppSourceCodeDir, '/app/build/outputs/apk/debug');
   const outputApksDir = join(newAppSourceCodeDir, '../outputApks');
   let stringXmlPath = join(newAppSourceCodeDir, '/app/src/main/res/values/strings.xml');
   //console.log(appSourceCodeDir);
 
+ 
 
   /*creating copy of original source code */
   copyFolderSync(originalAppSourceCodeDir,newAppSourceCodeDir)
+
+   /* adding new gradle jdk path */
+ 
+const newLine = '\n\norg.gradle.java.home=../gradelJDK11\n';
+
+appendFileSync(gradlePropertiesFile, newLine);
   /* Change app name */
 
   // Read the strings.xml file

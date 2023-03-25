@@ -12,7 +12,7 @@ import android.webkit.WebView;
 import android.widget.Toast;
 
 import com.onesignal.OSDeviceState;
-
+import com.onesignal.OSSubscriptionState;
 import com.onesignal.OneSignal;
 
 import org.json.JSONException;

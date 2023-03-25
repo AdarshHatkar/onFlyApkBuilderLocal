@@ -95,11 +95,10 @@ public class MainActivity extends AppCompatActivity {
 
                     splashScreenRelativeLayout.setVisibility(View.GONE);
                     webViewRelativeLayout.setVisibility(View.VISIBLE);
-
-                     handler.postDelayed(() -> {
-                         // Timeout logic here
-
-                     }, 1000 * 2);
+//                    handler.postDelayed(() -> {
+//                        // Timeout logic here
+//
+//                    }, 1000 * 2);
 
                 }
             });
