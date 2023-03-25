@@ -1,4 +1,4 @@
-import require from "./require.js";
+import require from "./helpers/require.js";
 import { exec } from "node:child_process";
 import process from "node:process";
 import { fileURLToPath } from 'url';
@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // gradle --version
-export let mainFun = () => {
+export let mainFun = async () => {
 
 
   console.log("Script Started-------------------");
@@ -20,7 +20,7 @@ export let mainFun = () => {
 
   // old data constant 
   const oldApplicationId = "com.gaming_apk_v_103.web_apk";
- 
+
   const oldVersionCode = 10300;
   const oldVersionName = '1.0300'
 
@@ -33,7 +33,7 @@ export let mainFun = () => {
   const appLogoUrl = 'https://cdn.discordapp.com/attachments/873859091850743821/1082301103632289892/images_21.jpg'; // Replace with your image URL
 
   const newVersionCode = 10301;
-  const newVersionName = newVersionCode/10000;
+  const newVersionName = newVersionCode / 10000;
 
 
 
@@ -47,6 +47,7 @@ export let mainFun = () => {
   const gradlePropertiesFile = join(newAppSourceCodeDir, 'gradle.properties');
   const appBuild_GradleFile = join(newAppSourceCodeDir, '/app/build.gradle');
   const googleServices_JsonFile = join(newAppSourceCodeDir, '/app/google-services.json');
+  const appMainResDir = join(newAppSourceCodeDir, 'a/app/src/main/res');
   const debugApkDir = join(newAppSourceCodeDir, '/app/build/outputs/apk/debug');
   const outputApksDir = join(newAppSourceCodeDir, '../outputApks');
   let stringXmlPath = join(newAppSourceCodeDir, '/app/src/main/res/values/strings.xml');
@@ -57,7 +58,7 @@ export let mainFun = () => {
 
   const folder = appLogosDir; // Replace with the folder where you want to save the image
   const filename = userName; // Replace with the desired filename (without extension)
-  
+
   // Download the image
   axios.get(appLogoUrl, { responseType: 'arraybuffer' })
     .then(async (response) => {
@@ -66,14 +67,19 @@ export let mainFun = () => {
       if (!fileType) {
         throw new Error('Unable to determine file type');
       }
-      console.log({fileType});
-  
+      // console.log({fileType});
+
       // Save the image with the appropriate extension
       const extension = fileType.ext;
       const path = `${folder}/${filename}.${extension}`;
       writeFileSync(path, response.data, 'binary');
-  
+
       console.log(`Image saved to ${path}`);
+
+      /* change the app logo */
+      generateAndroidLauncherIcons(path, appMainResDir)
+        .then((result) => console.log(result))
+        .catch((err) => console.error(err));
     })
     .catch(error => {
       console.error(error);
@@ -87,6 +93,7 @@ export let mainFun = () => {
   const newLine = '\n\norg.gradle.java.home=../gradelJDK11\n';
   appendFileSync(gradlePropertiesFile, newLine);
 
+
   /* changing package name in module */
 
   readFile(appBuild_GradleFile, 'utf-8', (err, data) => {
@@ -95,7 +102,7 @@ export let mainFun = () => {
       return;
     }
 
-    
+
 
     // Replace the old Application Id with the new Application Id
     let newBuildGradleData = data.replace(
