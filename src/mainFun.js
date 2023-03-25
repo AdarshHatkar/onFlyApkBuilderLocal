@@ -26,6 +26,8 @@ export let mainFun = async() => {
   const outputApksDir = join(__dirname, '../outputApks');
   //console.log(appSourceCodeDir);
 
+
+  
   const command = `cd ${appSourceCodeDir} && gradlew assembleDebug`;
 
   exec(command, (error, stdout, stderr) => {
