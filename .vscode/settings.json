@@ -1,5 +1,12 @@
 {
     "cSpell.words": [
-        "gradlew"
+        "gradlew",
+        "hdpi",
+        "ldpi",
+        "mdpi",
+        "xhdpi",
+        "Xlint",
+        "xxhdpi",
+        "xxxhdpi"
     ]
 }
