@@ -1,74 +1,50 @@
-import { copyFolderAsync, } from "./helpers/copyFolder.js";
-import { updateAppIconFun } from "./helpers/generateAppIcon.js";
-import { newAppSourceCodeDir, originalAppSourceCodeDir } from "./constants.js";
-import { addJdkPathFun } from "./helpers/addJdkPath.js";
-import { updateBuildGradle } from "./helpers/updateBuildGradleFile.js";
-import { updateGoogleServicesJson } from "./helpers/googleServices_Json.js";
-import { updateAppName } from "./helpers/updateAppName.js";
-import { buildApkFun } from "./helpers/buildApk.js";
+import axios from "axios";
+import { builderFun } from "./helpers/builder.js";
+import { restBaseUrl } from "./helpers/config.js";
+
 
 
 
 let main = async () => {
+    try {
+        let response = await axios.get(`${restBaseUrl}/basic/getWebApkOrders`)
 
-    console.log("------program started---------");
+        console.log(response.data);
+        if (response.data.status == 'success') {
+            //new data variable
+            let { pendingOrders } = response.data
 
+            if (pendingOrders.length > 0) {
 
+                for (let i = 0; i < pendingOrders.length; i++) {
 
+                    let { sn,ownerId,version,logoLink, orderType,all_owners } = pendingOrders[i]
+                   
+                    if (orderType == 'apk') {
 
+                        let userName = all_owners.web_app_details[0].username;
+                        let newApplicationId = `com.${userName}.web_apk`;
+                        
+                        let apkName = all_owners.web_app_details[0].name;
+                        let appLogoUrl = logoLink; // Replace with your image URL
 
+                        let newVersionCode = version;
 
+                        await builderFun(newApplicationId, userName, apkName, appLogoUrl, newVersionCode)
+                    }
 
+                }
 
-    //new data variable
-
-    let newApplicationId = 'com.gaming_apk.web_apk';
-    let userName = 'gaming_apk';
-    let apkName = 'Gaming Apk';
-    let appLogoUrl = 'https://cdn.discordapp.com/attachments/947848349476876389/1089248253897343146/ic_launcher_foreground.png'; // Replace with your image URL
-
-    let newVersionCode = 10301;
-    let newVersionName = newVersionCode / 10000;
-
-
-
-
-
-
-
-
-
-
-
-    /*creating copy of original source code */
-    await copyFolderAsync(originalAppSourceCodeDir, newAppSourceCodeDir)
-
-    /* adding new gradle jdk path */
-
-    await addJdkPathFun()
-
-    /*download logo from link  and stores in a folder*/
-
-    await updateAppIconFun(userName, appLogoUrl)
-
-    /* changing package name in module */
-
-    await updateBuildGradle(newApplicationId, newVersionCode)
-
-    /* editing package json file */
-
-    await updateGoogleServicesJson(newApplicationId)
-    /* Change app name */
-    await updateAppName(apkName)
-    // Read the strings.xml file
+            }
 
 
-   await buildApkFun(userName,newVersionCode)
+        }
 
-    
+    } catch (error) {
+        console.log(error);
+    }
 
 
-    console.log("------program ended---------");
 }
 main()
 

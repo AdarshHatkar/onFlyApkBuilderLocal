@@ -126,7 +126,7 @@ import imageType from 'image-type';
 export let updateAppIconFun = (userName, appLogoUrl) => {
     return new Promise(async (resolve, reject) => {
         try {
-
+            console.log("\n ------- icon updating stated---------");
             const folder = appLogosDir; // Replace with the folder where you want to save the image
             const filename = userName; // Replace with the desired filename (without extension)
 
@@ -149,7 +149,9 @@ export let updateAppIconFun = (userName, appLogoUrl) => {
             /* change the app logo */
            let  result=   await generateAndroidLauncherIcons(downloadedLogoPath)
                 if(result){
+                    console.log("\n ------- icon updating ended---------");
                     resolve(true)
+
                 }
         } catch (error) {
             reject(error)
