@@ -3,21 +3,27 @@ import { googleServices_JsonFile } from "../constants.js";
 
 
 
-export let updateGoogleServicesJson = (newApplicationId) => {
+export let updateGoogleServicesJson = (newApplicationId, googleServiceJson) => {
     return new Promise((resolve, reject) => {
         try {
-            // Read the contents of the JSON file
-            const data = readFileSync(googleServices_JsonFile).toString();
 
-            // Parse the JSON data
-            const jsonData = JSON.parse(data);
+            if (googleServiceJson == "") {
+                // Read the contents of the JSON file
+                const data = readFileSync(googleServices_JsonFile).toString();
 
-            // Modify the JSON object
+                // Parse the JSON data
+                const jsonData = JSON.parse(data);
 
-            jsonData.client[0].client_info.android_client_info.package_name = newApplicationId
+                // Modify the JSON object
 
-            // Write the modified JSON back to the file
-            writeFileSync(googleServices_JsonFile, JSON.stringify(jsonData, null, 2));
+                jsonData.client[0].client_info.android_client_info.package_name = newApplicationId
+
+                // Write the modified JSON back to the file
+                writeFileSync(googleServices_JsonFile, JSON.stringify(jsonData, null, 2));
+            }else{
+                writeFileSync(googleServices_JsonFile, googleServiceJson);
+            }
+
 
             resolve(true)
         } catch (error) {

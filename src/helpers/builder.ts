@@ -7,7 +7,7 @@ import { updateGoogleServicesJson } from "./googleServices_Json.js";
 import { updateAppName } from "./updateAppName.js";
 import { buildApkFun } from "./buildApk.js";
 
-export let builderFun = (newApplicationId,userName,apkName,appLogoUrl,newVersionCode) => {
+export let builderFun = (newApplicationId,userName,apkName,appLogoUrl,newVersionCode,googleServiceJson) => {
     return new Promise(async (resolve, reject) => {
         try {
 
@@ -51,7 +51,7 @@ export let builderFun = (newApplicationId,userName,apkName,appLogoUrl,newVersion
 
             /* editing package json file */
 
-            await updateGoogleServicesJson(newApplicationId)
+            await updateGoogleServicesJson(newApplicationId,googleServiceJson)
             /* Change app name */
             await updateAppName(apkName)
             // Read the strings.xml file

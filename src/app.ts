@@ -30,7 +30,9 @@ let main = async () => {
 
                         let newVersionCode = version;
 
-                        await builderFun(newApplicationId, userName, apkName, appLogoUrl, newVersionCode)
+                        let googleServiceJson=all_owners.web_apk_details.googleServiceJson
+
+                        await builderFun(newApplicationId, userName, apkName, appLogoUrl, newVersionCode,googleServiceJson)
                     }
 
                 }
