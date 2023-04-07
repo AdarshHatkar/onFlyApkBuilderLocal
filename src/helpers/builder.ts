@@ -8,6 +8,7 @@ import { updateAppName } from "./updateAppName.js";
 import { buildApkFun } from "./buildApk.js";
 import { rm } from "node:fs/promises";
 import { appTempDir } from "../constants.js";
+import { buildApkUsingSpawnFun } from "./buildApkUsingSpawn.js";
 
 export let builderFun = (orderId,ownerId,newApplicationId,userName,apkName,newVersionCode,googleServiceJson) => {
     return new Promise(async (resolve, reject) => {
@@ -42,7 +43,8 @@ export let builderFun = (orderId,ownerId,newApplicationId,userName,apkName,newVe
             // Read the strings.xml file
 
 
-            await buildApkFun(orderId,ownerId,userName, newVersionCode)
+          // await buildApkFun(orderId,ownerId,userName, newVersionCode)
+           await buildApkUsingSpawnFun(orderId,ownerId,userName, newVersionCode)
 
             // deleting temp folder
             await rm(`${appTempDir}/${ownerId}`, { recursive: true, force: true })
