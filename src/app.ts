@@ -19,20 +19,20 @@ let main = async () => {
                 for (let i = 0; i < pendingOrders.length; i++) {
 
                     let { sn,ownerId,version,logoLink, orderType,all_owners } = pendingOrders[i]
-                   
+                       let orderId=sn
                     if (orderType == 'apk') {
 
                         let userName = all_owners.web_app_details[0].username;
                         let newApplicationId = `com.${userName}.web_apk`;
                         
                         let apkName = all_owners.web_app_details[0].name;
-                        let appLogoUrl = logoLink; // Replace with your image URL
+                      
 
                         let newVersionCode = version;
 
                         let googleServiceJson=all_owners.web_apk_details.googleServiceJson
 
-                        await builderFun(newApplicationId, userName, apkName, appLogoUrl, newVersionCode,googleServiceJson)
+                        await builderFun(orderId,ownerId,newApplicationId, userName, apkName,  newVersionCode,googleServiceJson)
                     }
 
                 }

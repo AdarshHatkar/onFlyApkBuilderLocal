@@ -17,9 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "@onesignal/node-onesignal": "^1.0.0-beta9",
-
- 
+    "android-icons-generator": "^1.0.4",
+    "adm-zip": "^0.5.10",
     "axios": "^1.3.4",
+    "basic-ftp": "^5.0.2",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
@@ -36,6 +37,7 @@
     "paytm-pg-node-sdk": "^1.0.4",
     "prisma-zod-generator": "^0.8.11",
     "public-ip": "^6.0.1",
+    "read-chunk": "^4.0.3",
     "sharp": "^0.32.0",
     "superjson": "^1.12.2",
     "swagger-ui-express": "^4.6.2",
@@ -61,7 +63,6 @@
     "@typescript-eslint/parser": "^5.56.0",
     "eslint": "^8.36.0",
     "nodemon": "^2.0.21",
-  
     "typescript": "^5.0.2"
   }
 }

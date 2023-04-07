@@ -7,29 +7,12 @@ import { updateGoogleServicesJson } from "./googleServices_Json.js";
 import { updateAppName } from "./updateAppName.js";
 import { buildApkFun } from "./buildApk.js";
 
-export let builderFun = (newApplicationId,userName,apkName,appLogoUrl,newVersionCode,googleServiceJson) => {
+export let builderFun = (orderId,ownerId,newApplicationId,userName,apkName,newVersionCode,googleServiceJson) => {
     return new Promise(async (resolve, reject) => {
         try {
 
 
-            console.log("------Builder started---------");
-
-
-
-
-
-
-
-
-        
-           
-
-
-
-
-
-
-
+            console.log(`\n------Building ${apkName} started---------`);
 
 
 
@@ -43,7 +26,7 @@ export let builderFun = (newApplicationId,userName,apkName,appLogoUrl,newVersion
 
             /*download logo from link  and stores in a folder*/
 
-            await updateAppIconFun(userName, appLogoUrl)
+            await updateAppIconFun(userName, ownerId)
 
             /* changing package name in module */
 
@@ -57,12 +40,12 @@ export let builderFun = (newApplicationId,userName,apkName,appLogoUrl,newVersion
             // Read the strings.xml file
 
 
-            await buildApkFun(userName, newVersionCode)
+            await buildApkFun(orderId,ownerId,userName, newVersionCode)
+
+            
 
 
-
-
-            console.log("------program ended---------");
+            console.log(`\n------Building ${apkName} Completed---------`);
             resolve(true)
         } catch (error) {
             reject(error)
