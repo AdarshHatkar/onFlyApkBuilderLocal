@@ -5,12 +5,12 @@ import { addJdkPathFun } from "./addJdkPath.js";
 import { updateBuildGradle } from "./updateBuildGradleFile.js";
 import { updateGoogleServicesJson } from "./googleServices_Json.js";
 import { updateAppName } from "./updateAppName.js";
-import { buildApkFun } from "./buildApk.js";
+
 import { rm } from "node:fs/promises";
 import { appTempDir } from "../constants.js";
 import { buildApkUsingSpawnFun } from "./buildApkUsingSpawn.js";
 
-export let builderFun = (orderId,ownerId,newApplicationId,userName,apkName,newVersionCode,googleServiceJson) => {
+export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, newVersionCode, googleServiceJson) => {
     return new Promise(async (resolve, reject) => {
         try {
 
@@ -37,14 +37,14 @@ export let builderFun = (orderId,ownerId,newApplicationId,userName,apkName,newVe
 
             /* editing package json file */
 
-            await updateGoogleServicesJson(newApplicationId,googleServiceJson)
+            await updateGoogleServicesJson(newApplicationId, googleServiceJson)
             /* Change app name */
             await updateAppName(apkName)
             // Read the strings.xml file
 
 
-          // await buildApkFun(orderId,ownerId,userName, newVersionCode)
-           await buildApkUsingSpawnFun(orderId,ownerId,userName, newVersionCode)
+            // await buildApkFun(orderId,ownerId,userName, newVersionCode)
+            await buildApkUsingSpawnFun(orderId, ownerId, userName, newVersionCode)
 
             // deleting temp folder
             await rm(`${appTempDir}/${ownerId}`, { recursive: true, force: true })

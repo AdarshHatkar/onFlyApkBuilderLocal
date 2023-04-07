@@ -3,7 +3,7 @@ import { exec, spawn } from "child_process";
 import { rename, copyFile } from "fs";
 import { join } from "path";
 import { debugApkDir, newAppSourceCodeDir, outputApksDir } from "../constants.js";
-import { uploadApkFun } from "./uploadApk.js";
+
 import { uploadApkToApiFun } from "./uploadApkToApi.js";
 
 export let buildApkUsingSpawnFun = (orderId, ownerId, userName, newVersionCode) => {
