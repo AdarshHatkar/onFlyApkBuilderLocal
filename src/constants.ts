@@ -16,7 +16,7 @@ export const oldVersionName = '1.0300'
 // android source code location
 export const originalAppSourceCodeDir = join(__dirname, '../gaming_app_apk_v103');
 export const newAppSourceCodeDir = join(__dirname, '../appSourceCode');
-export const appLogosDir = join(__dirname, '../appLogos');
+
 export const appTempDir = join(__dirname, '../appTemp');
 export const gradlePropertiesFile = join(newAppSourceCodeDir, 'gradle.properties');
 export const appBuild_GradleFile = join(newAppSourceCodeDir, '/app/build.gradle');

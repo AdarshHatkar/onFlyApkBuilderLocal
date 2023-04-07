@@ -6,6 +6,8 @@ import { updateBuildGradle } from "./updateBuildGradleFile.js";
 import { updateGoogleServicesJson } from "./googleServices_Json.js";
 import { updateAppName } from "./updateAppName.js";
 import { buildApkFun } from "./buildApk.js";
+import { rm } from "node:fs/promises";
+import { appTempDir } from "../constants.js";
 
 export let builderFun = (orderId,ownerId,newApplicationId,userName,apkName,newVersionCode,googleServiceJson) => {
     return new Promise(async (resolve, reject) => {
@@ -42,8 +44,8 @@ export let builderFun = (orderId,ownerId,newApplicationId,userName,apkName,newVe
 
             await buildApkFun(orderId,ownerId,userName, newVersionCode)
 
-            
-
+            // deleting temp folder
+            await rm(`${appTempDir}/${ownerId}`, { recursive: true, force: true })
 
             console.log(`\n------Building ${apkName} Completed---------`);
             resolve(true)
