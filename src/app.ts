@@ -50,7 +50,7 @@ let main = async () => {
 
 
 }
-let setIntervalTimeOutForMain =1000*10
+let setIntervalTimeOutForMain =1000*60
 setInterval( async ()=>{
     
     if(!isBuilderRunning){
