@@ -11,8 +11,8 @@ android {
         applicationId 'com.demo_app_v1.web_apk'
         minSdk 24
         targetSdk 33
-        versionCode 10200
-        versionName '1.02'
+        versionCode 10304
+        versionName '1.0304'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -2,11 +2,12 @@ import axios from "axios";
 import { builderFun } from "./helpers/builder.js";
 import { restBaseUrl } from "./helpers/config.js";
 
-
+let isBuilderRunning=false
 
 
 let main = async () => {
     try {
+        isBuilderRunning =true
         let response = await axios.get(`${restBaseUrl}/basic/getWebApkOrders`)
 
         console.log(response.data);
@@ -41,12 +42,25 @@ let main = async () => {
 
 
         }
-
+        isBuilderRunning=false
     } catch (error) {
+        isBuilderRunning=false
         console.log(error);
     }
 
 
 }
-main()
+let setIntervalTimeOutForMain =1000*10
+setInterval( async ()=>{
+    
+    if(!isBuilderRunning){
+   
+        console.log("-----Main fun called -------");
+        await main()
+        console.log("-----Main fun Ended -------");
+        
+    }
+    
+},setIntervalTimeOutForMain)
+
 

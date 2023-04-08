@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "425163193428",
-    "project_id": "fir-app-v1-e7c5a",
-    "storage_bucket": "fir-app-v1-e7c5a.appspot.com"
+    "project_number": "1031473572750",
+    "project_id": "gaming-app-apk",
+    "storage_bucket": "gaming-app-apk.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:425163193428:android:db247115f8da6d825c41c1",
+        "mobilesdk_app_id": "1:1031473572750:android:36b20c822252c98eb612df",
         "android_client_info": {
           "package_name": "com.demo_app_v1.web_apk"
         }
       },
       "oauth_client": [
         {
-          "client_id": "425163193428-j3b8dla35hmcd8uitd4oko9jf6hsl282.apps.googleusercontent.com",
+          "client_id": "1031473572750-cge6cv8nfl67j7r43p5mkutcbebsjgme.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBCGYEtCqKlzTS4g_M-PooMaUiIPRa-32g"
+          "current_key": "AIzaSyD45z4pQSZsWYkGXQBzrRCIjAM9yBw2Acs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "425163193428-j3b8dla35hmcd8uitd4oko9jf6hsl282.apps.googleusercontent.com",
+              "client_id": "1031473572750-cge6cv8nfl67j7r43p5mkutcbebsjgme.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
