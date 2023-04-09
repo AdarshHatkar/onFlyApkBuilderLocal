@@ -8,7 +8,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId 'com.esportz_khelo.web_apk'
+        applicationId 'com.gaming_adda.web_apk'
         minSdk 24
         targetSdk 33
         versionCode 10300
