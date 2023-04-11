@@ -2,7 +2,7 @@
 
 @REM Running node project in production 
 
-@REM call setPaths.bat
+call helpers/setPaths.bat
 
 
 @REM rem Change directory to the root of the Node.js project

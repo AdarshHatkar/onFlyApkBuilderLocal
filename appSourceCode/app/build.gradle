@@ -11,8 +11,8 @@ android {
         applicationId 'com.gaming_apk.web_apk'
         minSdk 24
         targetSdk 33
-        versionCode 10307
-        versionName '1.0307'
+        versionCode 10308
+        versionName '1.0308'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
