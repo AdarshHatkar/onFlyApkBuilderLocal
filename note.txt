@@ -2,3 +2,12 @@ org.gradle.java.home=../gradelJDK11
 
 
 add this file in gradel.properties
+
+and android sk in single external dependency which is automatically set by android studio
+--------------------
+
+to install android ask  
+
+install command line tool in standard location
+
+accept all license and  run gradelw command rest will done by it self

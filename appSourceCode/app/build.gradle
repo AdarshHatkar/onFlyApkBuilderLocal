@@ -8,11 +8,11 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId 'com.gaming_adda.web_apk'
+        applicationId 'com.gaming_apk.web_apk'
         minSdk 24
         targetSdk 33
-        versionCode 10300
-        versionName '1.03'
+        versionCode 10307
+        versionName '1.0307'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

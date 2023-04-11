@@ -2,12 +2,12 @@ import axios from "axios";
 import { builderFun } from "./helpers/builder.js";
 import { restBaseUrl } from "./helpers/config.js";
 
-let isBuilderRunning=false
+let isBuilderRunning:boolean = false
 
 
 let main = async () => {
     try {
-        isBuilderRunning =true
+        isBuilderRunning = true
         let response = await axios.get(`${restBaseUrl}/basic/getWebApkOrders`)
 
         console.log(response.data);
@@ -19,21 +19,21 @@ let main = async () => {
 
                 for (let i = 0; i < pendingOrders.length; i++) {
 
-                    let { sn,ownerId,version,logoLink, orderType,all_owners } = pendingOrders[i]
-                       let orderId=sn
+                    let { sn, ownerId, version, logoLink, orderType, all_owners } = pendingOrders[i]
+                    let orderId = sn
                     if (orderType == 'apk') {
 
                         let userName = all_owners.web_app_details[0].username;
                         let newApplicationId = `com.${userName}.web_apk`;
-                        
+
                         let apkName = all_owners.web_app_details[0].name;
-                      
+
 
                         let newVersionCode = version;
 
-                        let googleServiceJson=all_owners.web_apk_details.googleServiceJson
+                        let googleServiceJson = all_owners.web_apk_details.googleServiceJson
 
-                        await builderFun(orderId,ownerId,newApplicationId, userName, apkName,  newVersionCode,googleServiceJson)
+                        await builderFun(orderId, ownerId, newApplicationId, userName, apkName, newVersionCode, googleServiceJson)
                     }
 
                 }
@@ -42,25 +42,26 @@ let main = async () => {
 
 
         }
-        isBuilderRunning=false
+        isBuilderRunning = false
     } catch (error) {
-        isBuilderRunning=false
+        isBuilderRunning = false
         console.log(error);
     }
 
 
 }
-let setIntervalTimeOutForMain =1000*60
-setInterval( async ()=>{
-    
-    if(!isBuilderRunning){
-   
-        console.log("-----Main fun called -------");
-        await main()
-        console.log("-----Main fun Ended -------");
-        
-    }
-    
-},setIntervalTimeOutForMain)
 
 
+
+
+
+let callTheMainFun = async () => {
+    console.log("-----Main fun called -------");
+    await main()
+    console.log("-----Main fun Ended -------");
+
+    // Schedule the function to run again in 2 minutes
+    setTimeout(callTheMainFun, 2 * 60 * 1000);
+}
+
+callTheMainFun();
