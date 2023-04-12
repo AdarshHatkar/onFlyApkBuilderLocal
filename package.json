@@ -5,6 +5,7 @@
   "main": "dist/app.js",
   "type": "module",
   "scripts": {
+    "development_bat": "batch\\development.bat",
     "dev": " concurrently  \"tsc --watch\" \"node dist/app.js ",
     "dev-nodemon": " nodemon -q src/app.js ",
     "build": "tsc && node .",
@@ -42,6 +43,7 @@
     "prisma-zod-generator": "^0.8.11",
     "public-ip": "^6.0.1",
     "read-chunk": "^4.0.3",
+    "rimraf": "^5.0.0",
     "sharp": "^0.32.0",
     "superjson": "^1.12.2",
     "swagger-ui-express": "^4.6.2",

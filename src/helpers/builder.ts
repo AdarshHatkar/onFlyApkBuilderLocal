@@ -21,7 +21,7 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
 
 
             /*creating copy of original source code */
-            await copyFolderAsync(originalAppSourceCodeDir, newAppSourceCodeDir)
+            await copyFolderAsync(originalAppSourceCodeDir, newAppSourceCodeDir,true)
 
             /* adding new gradle jdk path */
 
