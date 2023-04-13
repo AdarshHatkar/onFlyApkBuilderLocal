@@ -1,7 +1,7 @@
 
 import sharp from 'sharp';
 import fs, { existsSync, renameSync, writeFileSync } from 'fs';
-import {  appMainDir, appMainResDir, appTempDir, playstoreIconDir } from '../constants.js';
+import { appMainDir, appMainResDir, appTempDir, playstoreIconDir } from '../constants.js';
 import axios from 'axios';
 import AdmZip from 'adm-zip';
 
@@ -12,7 +12,7 @@ import path from 'path';
 import { copyFolderAsync } from './copyFolder.js';
 import { unixTimeStampInSeconds } from './utility.js';
 
-
+import { rimraf } from 'rimraf';
 
 
 
@@ -26,13 +26,16 @@ export let updateAppIconFun = (userName, ownerId) => {
             // Set the path where the zip file will be saved
             const filePath = path.join(folderPath, 'apkLogoBundle.zip');
 
-            // Make sure the download folder exists, if not create it
-            if (!fs.existsSync(folderPath)) {
-                await mkdir(folderPath, { recursive: true });
+            // Make sure the download folder exists, if not create it also it need be empty 
+            if (fs.existsSync(folderPath)) {
+                // delete folder if exist already
+                // making to folder empty 
+                await rimraf(folderPath);
             }
+            await mkdir(folderPath, { recursive: true });
 
             // Download the  apk logo bundle
-            let response = await axios.get(`https://gafs.primexop.com/${ownerId}/apkLogoBundle.zip?v=${unixTimeStampInSeconds()}`, {  responseType: 'stream' })
+            let response = await axios.get(`https://gafs.primexop.com/${ownerId}/apkLogoBundle.zip?v=${unixTimeStampInSeconds()}`, { responseType: 'stream' })
 
             // Create a writable stream to write the file
             const writer = fs.createWriteStream(filePath);
@@ -57,7 +60,7 @@ export let updateAppIconFun = (userName, ownerId) => {
             await copyFolderAsync(`${folderPath}/android`, appMainDir)
 
             console.log("\n ------- icon updating ended---------");
-               resolve(true)
+            resolve(true)
         } catch (error) {
             reject(false)
             console.log(error);
