@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1031473572750",
-    "project_id": "gaming-app-apk",
-    "storage_bucket": "gaming-app-apk.appspot.com"
+    "project_number": "941877625237",
+    "project_id": "gaming-muqabla",
+    "storage_bucket": "gaming-muqabla.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1031473572750:android:36b20c822252c98eb612df",
+        "mobilesdk_app_id": "1:941877625237:android:7aa418738edd31aecfb69c",
         "android_client_info": {
-          "package_name": "com.love_tournament.web_apk"
+          "package_name": "com.gaming_muqabla.web_apk"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1031473572750-cge6cv8nfl67j7r43p5mkutcbebsjgme.apps.googleusercontent.com",
+          "client_id": "941877625237-lnsd8dbic8n226j6q45hbv3e3n9hiog6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD45z4pQSZsWYkGXQBzrRCIjAM9yBw2Acs"
+          "current_key": "AIzaSyDuEE7FWObZxMl4sr_t-bqUYEa9cOP0Jmc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1031473572750-cge6cv8nfl67j7r43p5mkutcbebsjgme.apps.googleusercontent.com",
+              "client_id": "941877625237-lnsd8dbic8n226j6q45hbv3e3n9hiog6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
