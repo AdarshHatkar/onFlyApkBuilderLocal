@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <resources>
   &#xD;
-    &#xD;
+  &#xD;&#xD;
+    &#xD;&#xD;
+&#xD;&#xD;
+    &#xD;&#xD;
+&#xD;&#xD;
+    // main&#xD;&#xD;
+&#xD;&#xD;
+    &#xD;&#xD;
+&#xD;&#xD;
+    &#xD;&#xD;
+&#xD;&#xD;
+&#xD;&#xD;
+&#xD;&#xD;
 &#xD;
-    &#xD;
-&#xD;
-    // main&#xD;
-&#xD;
-    &#xD;
-&#xD;
-    &#xD;
-&#xD;
-&#xD;
-&#xD;
+  &#xD;
+  &#xD;
+  &#xD;
+  &#xD;
 
   <string name="app_name">GARENA BATTLE OFFICIAL</string>
   <string name="splash_subtitle"/>
   <string name="onesignal_app_id"/>
-  <string name="home_page_link">https://mtawar.primexop.com/demo_app_v1/init/10322/</string>
+  <string name="home_page_link">https://mtawar.primexop.com/demo_app_v1/init/10328/</string>
 </resources>

@@ -16,6 +16,8 @@ import { uploadAbbToApiFun } from "./uploadAbbToApi.js";
 import { updateStringXml } from "./updateStringXml.js";
 import { exec, execSync } from "node:child_process";
 import { rimraf } from "rimraf";
+import { join } from "node:path";
+import { deleteFolderRecursive } from "./deleteFolderRecursive.js";
 
 export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, newVersionCode, googleServiceJson, orderType,oneSignalAppId) => {
     return new Promise(async (resolve, reject) => {
@@ -33,8 +35,23 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
             // await copyFolderAsync(originalAppSourceCodeV103Dir, newAppSourceCodeDir, true)
             await copyFolderAsync(originalAppSourceCodeV106Dir, newAppSourceCodeDir, true)
 
+
+            const deleteGitFolder = function (folderPath) {
+                try {
+                  execSync(`rm -rf ${folderPath}`);
+                  console.log(`Deleted ${folderPath}`);
+                } catch (err) {
+                  console.error(`Error deleting ${folderPath}: ${err}`);
+                }
+              };
+              
+              const gitFolderPath = join(newAppSourceCodeDir, '.git');
+              console.log(gitFolderPath);
+              deleteGitFolder(gitFolderPath);
+
             /* deleting git folder */
-            await rimraf(`${newAppSourceCodeDir}/.git`);
+            // deleteFolderRecursive()
+            // await rimraf(join(newAppSourceCodeDir, '/.git/'));
             /* adding new gradle jdk path */
 
             await addJdkPathFun()
