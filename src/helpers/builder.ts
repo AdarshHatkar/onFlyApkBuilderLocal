@@ -14,6 +14,7 @@ import { buildAbb } from "./buildAbb.js";
 import { uploadAbbToApiFun } from "./uploadAbbToApi.js";
 
 import { updateStringXml } from "./updateStringXml.js";
+import { exec, execSync } from "node:child_process";
 
 export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, newVersionCode, googleServiceJson, orderType,oneSignalAppId) => {
     return new Promise(async (resolve, reject) => {
@@ -25,7 +26,9 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
             let homePageLink=`https://mtawar.primexop.com/${userName}/init/${newVersionCode}/`
 
 
-            /*creating copy of original source code */
+            /*creating copy of original source code from main branch */
+            
+            execSync('git checkout main', { cwd: originalAppSourceCodeV106Dir});
             // await copyFolderAsync(originalAppSourceCodeV103Dir, newAppSourceCodeDir, true)
             await copyFolderAsync(originalAppSourceCodeV106Dir, newAppSourceCodeDir, true)
 
