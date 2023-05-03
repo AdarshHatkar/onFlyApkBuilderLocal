@@ -5,7 +5,7 @@ import { appendFile } from "fs/promises";
 export let addJdkPathFun=()=>{
     return new Promise( async (resolve, reject) => {
         try {
-            const newLine = '\n\norg.gradle.java.home=../gradleJDK17\n';
+            const newLine = '\n\norg.gradle.java.home=C:/Program Files/Android/Android Studio/jbr\n';
 
            await appendFile(gradlePropertiesFile, newLine);
             resolve(true)

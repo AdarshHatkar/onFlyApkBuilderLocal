@@ -32,9 +32,11 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
             /*creating copy of original source code from main branch */
             
             execSync('git checkout main', { cwd: originalAppSourceCodeV106Dir});
+            execSync('git pull -r origin main', { cwd: originalAppSourceCodeV106Dir});
             // await copyFolderAsync(originalAppSourceCodeV103Dir, newAppSourceCodeDir, true)
             await copyFolderAsync(originalAppSourceCodeV106Dir, newAppSourceCodeDir, true)
 
+            execSync('git checkout dev', { cwd: originalAppSourceCodeV106Dir});
 
           
 
