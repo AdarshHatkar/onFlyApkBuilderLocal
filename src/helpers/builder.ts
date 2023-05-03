@@ -36,18 +36,7 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
             await copyFolderAsync(originalAppSourceCodeV106Dir, newAppSourceCodeDir, true)
 
 
-            const deleteGitFolder = function (folderPath) {
-                try {
-                  execSync(`rm -rf ${folderPath}`);
-                  console.log(`Deleted ${folderPath}`);
-                } catch (err) {
-                  console.error(`Error deleting ${folderPath}: ${err}`);
-                }
-              };
-              
-              const gitFolderPath = join(newAppSourceCodeDir, '.git');
-              console.log(gitFolderPath);
-              deleteGitFolder(gitFolderPath);
+          
 
             /* deleting git folder */
             // deleteFolderRecursive()
