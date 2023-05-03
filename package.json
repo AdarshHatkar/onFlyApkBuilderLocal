@@ -8,10 +8,11 @@
     "development_bat": "batch\\development.bat",
     "dev": " concurrently  \"tsc --watch\" \"node dist/app.js ",
     "dev-nodemon": " nodemon -q src/app.js ",
+    "production_bat": "batch\\production.bat",
     "build": "tsc && node .",
     "run_app": " tsc && node dist/app.js",
     "prod-run": "set BUILDER_ENVIRONMENT=production && tsc && node dist/app.js",
-    "production_bat": "batch/production.bat",
+
     "watch": "tsc --watch ",
     "checkPackageUpdates": "ncu -u",
     "checkUnusedPackages": "depcheck"

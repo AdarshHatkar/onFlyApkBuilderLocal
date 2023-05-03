@@ -1,8 +1,11 @@
 @echo off
+@REM Resetting current directory 
+cd /d C:\xampp\htdocs\onFlyApkBuilderLocal\batch
 
-@REM Running node project in production 
 
 call helpers\setPaths.bat
+
+
 
 
 @REM rem Change directory to the root of the Node.js project

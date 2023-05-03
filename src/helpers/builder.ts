@@ -45,7 +45,7 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
             // await rimraf(join(newAppSourceCodeDir, '/.git/'));
             /* adding new gradle jdk path */
 
-            await addJdkPathFun()
+            // await addJdkPathFun()
 
             /*download logo from link  and stores in a folder*/
 

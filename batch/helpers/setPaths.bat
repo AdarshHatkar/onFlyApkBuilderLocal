@@ -2,6 +2,10 @@
  
 rem Get current directory path
 set current_dir=%cd%
+echo %current_dir%
+
+set C_DIR=%SystemDrive%\
+echo %C_DIR%
 
 rem Construct paths relative to the current directory
 
@@ -17,7 +21,7 @@ set JAVA_HOME=C:\Program Files\Android\Android Studio\jbr
 
 rem Verify paths are set correctly
 
-@REM echo Java home: %java_home%
+echo Java home: %JAVA_HOME%
 
 
 
