@@ -5,7 +5,7 @@ set current_dir=%cd%
 
 rem Construct paths relative to the current directory
 
-set JAVA_HOME=%current_dir%\..\gradleJDK11
+set JAVA_HOME=%current_dir%\..\gradleJDK17
 
 @REM set ANDROID_HOME=%current_dir%\..\androidSdk
 @REM set sdkManagerDir=%ANDROID_HOME%/cmdline-tools/latest/bin

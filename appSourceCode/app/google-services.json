@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "941877625237",
-    "project_id": "gaming-muqabla",
-    "storage_bucket": "gaming-muqabla.appspot.com"
+    "project_number": "316782119314",
+    "project_id": "garena-tournament-e9571",
+    "storage_bucket": "garena-tournament-e9571.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:941877625237:android:7aa418738edd31aecfb69c",
+        "mobilesdk_app_id": "1:316782119314:android:c5a16176d1bde549dd194b",
         "android_client_info": {
-          "package_name": "com.gaming_muqabla.web_apk"
+          "package_name": "com.garena_tournament_.web_apk"
         }
       },
       "oauth_client": [
         {
-          "client_id": "941877625237-lnsd8dbic8n226j6q45hbv3e3n9hiog6.apps.googleusercontent.com",
+          "client_id": "316782119314-mng6512k90l2o1lv0prca4rkqfb9bcut.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDuEE7FWObZxMl4sr_t-bqUYEa9cOP0Jmc"
+          "current_key": "AIzaSyDnxcyClOoppQhrYDZ_uSe3pw5mNmdq0xw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "941877625237-lnsd8dbic8n226j6q45hbv3e3n9hiog6.apps.googleusercontent.com",
+              "client_id": "316782119314-mng6512k90l2o1lv0prca4rkqfb9bcut.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
