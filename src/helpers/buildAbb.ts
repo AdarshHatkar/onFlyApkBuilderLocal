@@ -2,24 +2,27 @@
 import { exec, spawn } from "child_process";
 import { rename, copyFile } from "fs";
 import { join } from "path";
-import { debugApkDir, newAppSourceCodeDir, outputApksDir } from "../constants.js";
+import { debugApkDir, newAppSourceCodeDir, outputApksDir, releaseAbbDir } from "../constants.js";
 
 
 
 
-export let buildApkUsingSpawnFun = (orderId, ownerId, userName, newVersionCode): Promise<{
-  status: 'success' | 'error',
-  msg: string,
-  data: any
-}> => {
-  return new Promise(async (resolve, reject) => {
+export let buildAbb = (orderId, ownerId, userName, newVersionCode) => {
+  return new Promise<{
+    status: 'success' | 'error',
+    msg: string,
+    data?: {
+      outputAbb: string,
+      abbNewName: string
+    }
+  }>(async (resolve, reject) => {
     try {
 
 
 
 
       const command = 'gradlew.bat';
-      const args = ['--daemon', ':app:assembleDebug'];
+      const args = ['--daemon', ':app:bundleRelease'];
       const options = { cwd: newAppSourceCodeDir };
 
       const gradleProcess = spawn(command, args, options);
@@ -42,7 +45,7 @@ export let buildApkUsingSpawnFun = (orderId, ownerId, userName, newVersionCode):
         reject({
           status: 'error',
           msg: `Error executing command: ${error.message}`,
-          data: error
+          
         });
 
       });
@@ -52,19 +55,19 @@ export let buildApkUsingSpawnFun = (orderId, ownerId, userName, newVersionCode):
 
         if (code === 0) {
           // APK file generated, do something with it here
-          const debugApk = join(debugApkDir, 'app-debug.apk');
-          const apkNewName = `${userName}V${newVersionCode}.apk`;
-          const renamedApk = join(debugApkDir, apkNewName);
-          const outputApk = join(outputApksDir, apkNewName);
+          const releaseAbb = join(releaseAbbDir, 'app-release.aab');
+          const abbNewName = `${userName}V${newVersionCode}.aab`;
+          const renamedAbb = join(releaseAbbDir, abbNewName);
+          const outputAbb = join(outputApksDir, abbNewName);
 
-          rename(debugApk, renamedApk, (err) => {
+          rename(releaseAbb, renamedAbb, (err) => {
             if (err) {
               console.error(`Error renaming file: ${err.message}`);
               reject(err);
             } else {
               console.log('Rename complete!');
 
-              copyFile(renamedApk, outputApk, async (err) => {
+              copyFile(renamedAbb, outputAbb, async (err) => {
                 if (err) {
                   console.error(`Error copying file: ${err.message}`);
                   reject(err);
@@ -79,7 +82,7 @@ export let buildApkUsingSpawnFun = (orderId, ownerId, userName, newVersionCode):
                     resolve({
                       status: 'success',
                       msg: `APK generated`,
-                      data: { outputApk, apkNewName }
+                      data: { outputAbb, abbNewName }
                     });
 
                   } catch (error) {

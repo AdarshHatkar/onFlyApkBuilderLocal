@@ -12,7 +12,12 @@ export function copyFolderAsync(from: string, to: string,isDeletingTo:boolean=fa
         console.log("\n ------- deleting stated---------");
 
         // making to folder empty 
-        await rimraf(to);
+        try {
+          await rimraf(to);
+        } catch (error) {
+          console.log(error);
+        }
+       
         console.log("\n ------- deleting completed---------");
       }
    
@@ -25,7 +30,11 @@ export function copyFolderAsync(from: string, to: string,isDeletingTo:boolean=fa
           if (lstatSync(absolutePath).isFile()) {
             copyFileSync(absolutePath, targetPath);
           } else {
-            copyFolderFun(absolutePath, targetPath);
+            // copying all except git folder
+            if(!absolutePath.includes('.git')){
+              copyFolderFun(absolutePath, targetPath);
+            }
+           
           }
         })
       }

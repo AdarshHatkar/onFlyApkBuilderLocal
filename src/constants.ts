@@ -14,7 +14,8 @@ export const oldVersionName = '1.0300'
 
 
 // android source code location
-export const originalAppSourceCodeDir = join(__dirname, '../gaming_app_apk_v103');
+export const originalAppSourceCodeV103Dir = join(__dirname, '../../gaming_app_apk_v103');
+export const originalAppSourceCodeV106Dir = join(__dirname, '../../gaming_app_apk_v106');
 export const newAppSourceCodeDir = join(__dirname, '../appSourceCode');
 
 export const appTempDir = join(__dirname, '../appTemp');
@@ -25,6 +26,7 @@ export const appMainDir = join(newAppSourceCodeDir, '/app/src/main');
 export const appMainResDir = join(newAppSourceCodeDir, '/app/src/main/res');
 export const playstoreIconDir = join(newAppSourceCodeDir, '/app/src/main');
 export const debugApkDir = join(newAppSourceCodeDir, '/app/build/outputs/apk/debug');
+export const releaseAbbDir = join(newAppSourceCodeDir, '/app/build/outputs/bundle/release');
 export const outputApksDir = join(newAppSourceCodeDir, '../outputApks');
 export let stringXmlPath = join(newAppSourceCodeDir, '/app/src/main/res/values/strings.xml');
     //console.log(appSourceCodeDir);

@@ -5,6 +5,8 @@ import com.primexop.webview.BuildConfig;
 public class config {
     public static  final  Boolean isLocalEnvironment  =false;
     public static final String[] urlContainsForDirectExit = {"play", "account", "earn","login"};
+
+
     static final int app_v_code = BuildConfig.VERSION_CODE;
     static final String appUsername = BuildConfig.APPLICATION_ID.replaceFirst("^com.", "").replaceFirst("\\.web_apk", "");
 
@@ -17,7 +19,7 @@ public class config {
 
 
     /*production gaming app link*/
-    public static   String HomePageLink = "https://mtawar.primexop.com/"+appUsername+"/init/"+app_v_code+"/";
+//    public static   String HomePageLink = "https://mtawar.primexop.com/"+appUsername+"/init/"+app_v_code+"/";
 
 
 
