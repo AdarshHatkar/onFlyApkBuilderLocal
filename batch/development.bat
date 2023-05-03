@@ -5,6 +5,7 @@ cd /d C:\xampp\htdocs\onFlyApkBuilderLocal\batch
 
 call helpers\setPaths.bat
 
+call git checkout dev
 
 
 
