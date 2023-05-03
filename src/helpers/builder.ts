@@ -46,6 +46,8 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
             // await buildApkFun(orderId,ownerId,userName, newVersionCode)
             await buildApkUsingSpawnFun(orderId, ownerId, userName, newVersionCode)
 
+            /* uploading apk */
+
             // deleting temp folder
             await rm(`${appTempDir}/${ownerId}`, { recursive: true, force: true })
 
