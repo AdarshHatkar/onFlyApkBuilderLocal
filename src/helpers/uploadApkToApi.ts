@@ -7,7 +7,7 @@ import { restBaseUrl } from './config.js';
 export let uploadApkToApiFun = (orderId, localApkPath, apkNewName) => {
     return new Promise(async (resolve, reject) => {
         try {
-            console.log("\n ------- api upload stated---------");
+            console.log("\n ------- apk upload stated---------");
 
             const apkData = await readFile(localApkPath);
             const apkBlob = new Blob([apkData], { type: 'application/octet-stream' });
@@ -23,10 +23,10 @@ export let uploadApkToApiFun = (orderId, localApkPath, apkNewName) => {
             });
             console.log(response.data);
             if(response.data.status=="success"){
-                console.log("\n ------- api upload Completed---------");
+                console.log("\n ------- apk upload Completed---------");
                 resolve(true)
             }else{
-                console.log("\n ------- api upload Failed---------");
+                console.log("\n ------- apk upload Failed---------");
                 reject(false)
             }
             

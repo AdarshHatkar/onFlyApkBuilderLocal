@@ -90,8 +90,8 @@ public class JavaScriptInterface {
 
 
     @JavascriptInterface
-
-    public void initOnesignal( String jsonData){
+//this inter face disabled
+    public void initOnesignal___( String jsonData){
         try{
             JSONObject data = new JSONObject(jsonData);
             Log.d(TAG, "onesignal initiated");

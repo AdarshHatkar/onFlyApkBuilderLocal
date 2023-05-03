@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <resources>
-  <string name="app_name">Gaming Apk</string>
+  <string name="app_name">GARENA BATTLE OFFICIAL</string>
   <string name="splash_subtitle"/>
+  <string name="onesignal_app_id">62e4d5c7-f1ee-45df-b14d-bd4bcc160562</string>
+  <string name="home_page_link">https://mtawar.primexop.com/demo_app_v1/init/10317/</string>
 </resources>

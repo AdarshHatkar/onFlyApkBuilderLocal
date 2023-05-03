@@ -12,7 +12,12 @@ export function copyFolderAsync(from: string, to: string,isDeletingTo:boolean=fa
         console.log("\n ------- deleting stated---------");
 
         // making to folder empty 
-        await rimraf(to);
+        try {
+          await rimraf(to);
+        } catch (error) {
+          console.log(error);
+        }
+       
         console.log("\n ------- deleting completed---------");
       }
    

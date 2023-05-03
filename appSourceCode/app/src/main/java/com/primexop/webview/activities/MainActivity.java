@@ -3,7 +3,7 @@ package com.primexop.webview.activities;
 
 
 import static android.content.ContentValues.TAG;
-import static com.primexop.webview.projectHelpers.config.HomePageLink;
+
 import static com.primexop.webview.projectHelpers.config.isLocalEnvironment;
 import static com.primexop.webview.projectHelpers.config.urlContainsForDirectExit;
 
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         webView.setWebChromeClient(advancedWebChromeClient);
 
 
-        webView.loadUrl(HomePageLink);
+        webView.loadUrl(getString(R.string.home_page_link));
 
 
 
