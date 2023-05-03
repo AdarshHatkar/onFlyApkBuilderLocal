@@ -17,5 +17,9 @@
   <string name="app_name">GARENA BATTLE OFFICIAL</string>
   <string name="splash_subtitle"/>
   <string name="onesignal_app_id"/>
+<<<<<<< HEAD
+  <string name="home_page_link">https://mtawar.primexop.com/demo_app_v1/init/10322/</string>
+=======
   <string name="home_page_link">https://mtawar.primexop.com/demo_app_v1/init/10320/</string>
+>>>>>>> b4d05da1831c3447e191e1456a64bfed327c0e50
 </resources>

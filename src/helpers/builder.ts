@@ -15,6 +15,7 @@ import { uploadAbbToApiFun } from "./uploadAbbToApi.js";
 
 import { updateStringXml } from "./updateStringXml.js";
 import { exec, execSync } from "node:child_process";
+import { rimraf } from "rimraf";
 
 export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, newVersionCode, googleServiceJson, orderType,oneSignalAppId) => {
     return new Promise(async (resolve, reject) => {
@@ -32,6 +33,8 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
             // await copyFolderAsync(originalAppSourceCodeV103Dir, newAppSourceCodeDir, true)
             await copyFolderAsync(originalAppSourceCodeV106Dir, newAppSourceCodeDir, true)
 
+            /* deleting git folder */
+            await rimraf(`${newAppSourceCodeDir}/.git`);
             /* adding new gradle jdk path */
 
             await addJdkPathFun()
