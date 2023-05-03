@@ -8,11 +8,11 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId 'com.garena_tournament_.web_apk'
+        applicationId 'com.gaming_apk.web_apk'
         minSdk 24
         targetSdk 33
-        versionCode 10300
-        versionName '1.03'
+        versionCode 10313
+        versionName '1.0313'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
