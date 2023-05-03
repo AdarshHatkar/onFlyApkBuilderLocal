@@ -1,6 +1,6 @@
 import { copyFolderAsync, } from "./copyFolder.js";
 import { updateAppIconFun } from "./generateAppIcon.js";
-import { newAppSourceCodeDir, originalAppSourceCodeV103Dir, originalAppSourceCodeV106Dir } from "../constants.js";
+import { newAppSourceCodeDir, originalAppSourceCodeV106Dir } from "../constants.js";
 import { addJdkPathFun } from "./addJdkPath.js";
 import { updateBuildGradle } from "./updateBuildGradleFile.js";
 import { updateGoogleServicesJson } from "./googleServices_Json.js";
