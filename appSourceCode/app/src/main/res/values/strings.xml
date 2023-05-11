@@ -8,14 +8,15 @@
 &#xD;
 &#xD;
     &#xD;
-&#xD;
+//https://mtawar.primexop.com/gaming_apk/init/10600/&#xD;
+    // http://10.0.2.2:3002/&#xD;
     &#xD;
 &#xD;
     // dev&#xD;
 &#xD;
 
-  <string name="app_name">GARENA BATTLE OFFICIAL</string>
+  <string name="app_name">Gaming Muqabla</string>
   <string name="splash_subtitle"/>
-  <string name="onesignal_app_id"/>
-  <string name="home_page_link">https://mtawar.primexop.com/demo_app_v1/init/10333/</string>
+  <string name="onesignal_app_id">a3f0c777-2a14-4e42-a8a5-f033dd091738</string>
+  <string name="home_page_link">https://mtawar.primexop.com/gaming_muqabla/init/10600/</string>
 </resources>

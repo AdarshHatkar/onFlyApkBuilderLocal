@@ -59,7 +59,7 @@ let callTheMainFun = async () => {
     console.log("-----Main fun Ended -------");
 
     // Schedule the function to run again in 2 minutes
-    setTimeout(callTheMainFun, 2 * 60 * 1000);
+    setTimeout(callTheMainFun, 1 * 10 * 1000);
 }
 
 callTheMainFun();

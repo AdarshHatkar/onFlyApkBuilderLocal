@@ -8,11 +8,11 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId 'com.demo_app_v1.web_apk'
+        applicationId 'com.gaming_muqabla.web_apk'
         minSdk 24
         targetSdk 33
         versionCode 10600
-        versionName '1.0600'
+        versionName '1.06'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
