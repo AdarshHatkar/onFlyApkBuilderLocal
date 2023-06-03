@@ -15,8 +15,8 @@
     // dev&#xD;
 &#xD;
 
-  <string name="app_name">Gaming Muqabla</string>
+  <string name="app_name">Khelo Pro Gamers</string>
   <string name="splash_subtitle"/>
-  <string name="onesignal_app_id">a3f0c777-2a14-4e42-a8a5-f033dd091738</string>
-  <string name="home_page_link">https://mtawar.primexop.com/gaming_muqabla/init/10600/</string>
+  <string name="onesignal_app_id"/>
+  <string name="home_page_link">https://mtawar.primexop.com/khelo_pro_gamers/init/10600/</string>
 </resources>

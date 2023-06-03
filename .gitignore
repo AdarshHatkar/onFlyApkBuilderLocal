@@ -121,8 +121,9 @@ dist
 .cxx
 local.properties
 
-appSourceCode/
+./appSourceCode/**
 gaming_app_apk_v103/
 gaming_app_apk_v106/
 gaming_app_apk_v103_old/
 outputApks/
+

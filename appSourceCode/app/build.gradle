@@ -8,7 +8,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId 'com.gaming_muqabla.web_apk'
+        applicationId 'com.khelo_pro_gamers.web_apk'
         minSdk 24
         targetSdk 33
         versionCode 10600

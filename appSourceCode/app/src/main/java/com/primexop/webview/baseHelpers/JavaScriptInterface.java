@@ -66,7 +66,7 @@ public class JavaScriptInterface {
 
     }
     @JavascriptInterface
-    public void shareMessage(String jsonData) {
+    public void shareMessage(String jsonData)  {
 
 
         try {
