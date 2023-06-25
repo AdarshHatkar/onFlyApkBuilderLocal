@@ -15,8 +15,8 @@
     // dev&#xD;
 &#xD;
 
-  <string name="app_name">Khelo Pro Gamers</string>
+  <string name="app_name">Tournament Hub</string>
   <string name="splash_subtitle"/>
   <string name="onesignal_app_id"/>
-  <string name="home_page_link">https://mtawar.primexop.com/khelo_pro_gamers/init/10600/</string>
+  <string name="home_page_link">https://mtawar.primexop.com/tournament_hub/init/10600/</string>
 </resources>
