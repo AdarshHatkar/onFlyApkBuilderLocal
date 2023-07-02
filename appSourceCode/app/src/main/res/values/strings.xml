@@ -15,8 +15,8 @@
     // dev&#xD;
 &#xD;
 
-  <string name="app_name">Tournament Hub</string>
+  <string name="app_name">GAMER HEART</string>
   <string name="splash_subtitle"/>
-  <string name="onesignal_app_id"/>
-  <string name="home_page_link">https://mtawar.primexop.com/tournament_hub/init/10600/</string>
+  <string name="onesignal_app_id">acc86ef3-7fc1-4f44-b13f-0de4b772be09</string>
+  <string name="home_page_link">https://web.gamerheart.in/gamer_heart/init/10602/</string>
 </resources>

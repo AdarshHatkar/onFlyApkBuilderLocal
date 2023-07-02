@@ -1,6 +1,6 @@
 import axios from "axios";
 import { builderFun } from "./helpers/builder.js";
-import { restBaseUrl } from "./helpers/config.js";
+import { changeBaseUrl, restBaseUrl } from "./helpers/config.js";
 
 let isBuilderRunning: boolean = false
    
@@ -55,8 +55,16 @@ let main = async () => {
 
 let callTheMainFun = async () => {
     console.log("-----Main fun called -------");
+    console.log(`Url: ${restBaseUrl}`);
+    
     await main()
     console.log("-----Main fun Ended -------");
+    changeBaseUrl()
+
+    console.log("-----Main2 fun called -------");
+    console.log(`Url: ${restBaseUrl}`);
+    await main()
+    console.log("-----Main2 fun Ended -------");
 
     // Schedule the function to run again in 1 minutes
     setTimeout(callTheMainFun, 1 * 60 * 1000);

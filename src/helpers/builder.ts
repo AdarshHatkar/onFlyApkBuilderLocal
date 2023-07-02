@@ -18,6 +18,7 @@ import { exec, execSync } from "node:child_process";
 import { rimraf } from "rimraf";
 import { join } from "node:path";
 import { deleteFolderRecursive } from "./deleteFolderRecursive.js";
+import { restBaseUrl } from "./config.js";
 
 export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, newVersionCode, googleServiceJson, orderType,oneSignalAppId) => {
     return new Promise(async (resolve, reject) => {
@@ -27,6 +28,10 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
             console.log(`\n------Building ${apkName} started---------`);
 
             let homePageLink=`https://mtawar.primexop.com/${userName}/init/${newVersionCode}/`
+
+            if(restBaseUrl.includes('gamerheart')){
+                homePageLink=`https://web.gamerheart.in/${userName}/init/${newVersionCode}/`
+            }
 
 
             /*creating copy of original source code from main branch */
