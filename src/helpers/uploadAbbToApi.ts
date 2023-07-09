@@ -16,7 +16,7 @@ export let uploadAbbToApiFun = (orderId, localAbbPath, abbNewName) => {
             formData.append('file', apkBlob, abbNewName);
         //    formData.append('orderId', orderId);
         
-            const response = await axios.post(`${restBaseUrl}/basic/uploadAbb?orderId=${orderId}`, formData, {
+            const response = await axios.post(`${restBaseUrl}/uploadAab?orderId=${orderId}`, formData, {
               headers: {
                 'Content-Type': 'multipart/form-data',
               },

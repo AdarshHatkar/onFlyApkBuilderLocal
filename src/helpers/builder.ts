@@ -19,19 +19,18 @@ import { rimraf } from "rimraf";
 import { join } from "node:path";
 import { deleteFolderRecursive } from "./deleteFolderRecursive.js";
 import { restBaseUrl } from "./config.js";
+import { convertAppNameToUserName } from "./appNameHelper.js";
 
-export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, newVersionCode, googleServiceJson, orderType,oneSignalAppId) => {
+export let builderFun = (orderId,  newApplicationId,  apkName, versionName, googleJsonLink,oneSignalAppId,webLink,iconBundleLink) => {
     return new Promise(async (resolve, reject) => {
         try {
 
 
             console.log(`\n------Building ${apkName} started---------`);
 
-            let homePageLink=`https://mtawar.primexop.com/${userName}/init/${newVersionCode}/`
+            let homePageLink=webLink
 
-            if(restBaseUrl.includes('gamerheart')){
-                homePageLink=`https://web.gamerheart.in/${userName}/init/${newVersionCode}/`
-            }
+           let apkFileName=convertAppNameToUserName(`${apkName}V${versionName}`)
 
 
             /*creating copy of original source code from main branch */
@@ -54,15 +53,15 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
 
             /*download logo from link  and stores in a folder*/
 
-            await updateAppIconFun(userName, ownerId)
+            await updateAppIconFun(orderId,iconBundleLink)
 
             /* changing package name in module */
 
-            await updateBuildGradle(newApplicationId, newVersionCode)
+            await updateBuildGradle(orderId,newApplicationId, versionName)
 
             /* editing package json file */
 
-            await updateGoogleServicesJson(newApplicationId, googleServiceJson)
+            await updateGoogleServicesJson(newApplicationId, googleJsonLink)
 
         
 
@@ -71,26 +70,23 @@ export let builderFun = (orderId, ownerId, newApplicationId, userName, apkName, 
            
           
 
-            if (orderType == 'apkAndAab' || orderType == 'apkAndAabAndPlaystoreUpload') {
-                let res = await buildAbb(orderId, ownerId, userName, newVersionCode)
+            let res1 = await buildAbb(orderId, apkFileName, versionName)
                
 
-                /* uploading aab*/
-                await uploadAbbToApiFun(orderId, res.data.outputAbb, res.data.abbNewName);
-
-            }
+            /* uploading aab*/
+            await uploadAbbToApiFun(orderId, res1.data.outputAbb, res1.data.abbNewName);
 
 
             // await buildApkFun(orderId,ownerId,userName, newVersionCode)
-            let res = await buildApkUsingSpawnFun(orderId, ownerId, userName, newVersionCode)
+            let res2 = await buildApkUsingSpawnFun(orderId, apkFileName, versionName)
 
          
 
             /* uploading apk */
-            await uploadApkToApiFun(orderId, res.data.outputApk, res.data.apkNewName);
+            await uploadApkToApiFun(orderId, res2.data.outputApk, res2.data.apkNewName);
 
             // deleting temp folder
-            await rm(`${appTempDir}/${ownerId}`, { recursive: true, force: true })
+            await rm(`${appTempDir}/${orderId}`, { recursive: true, force: true })
 
             console.log(`\n------Building ${apkName} Completed---------`);
             resolve(true)

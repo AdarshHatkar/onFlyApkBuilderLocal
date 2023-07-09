@@ -18,12 +18,12 @@ import { restBaseUrl } from './config.js';
 
 
 
-export let updateAppIconFun = (userName, ownerId) => {
+export let updateAppIconFun = (orderId,iconBundleLink) => {
     return new Promise(async (resolve, reject) => {
         try {
             console.log("\n ------- icon updating stated---------");
 
-            let folderPath = `${appTempDir}/${ownerId}`
+            let folderPath = `${appTempDir}/${orderId}`
             // Set the path where the zip file will be saved
             const filePath = path.join(folderPath, 'apkLogoBundle.zip');
 
@@ -35,11 +35,9 @@ export let updateAppIconFun = (userName, ownerId) => {
             }
             await mkdir(folderPath, { recursive: true });
 
-            let apkLogoBundleUrl=`https://gafs.primexop.com/${ownerId}/apkLogoBundle.zip?v=${unixTimeStampInSeconds()}`
+            let apkLogoBundleUrl=`${iconBundleLink}?v=${unixTimeStampInSeconds()}`
 
-            if(restBaseUrl.includes('gamerheart')){
-                apkLogoBundleUrl=`https://fs.gamerheart.in/${ownerId}/apkLogoBundle.zip?v=${unixTimeStampInSeconds()}`
-            }
+       
 
             // Download the  apk logo bundle
             let response = await axios.get(apkLogoBundleUrl, { responseType: 'stream' })

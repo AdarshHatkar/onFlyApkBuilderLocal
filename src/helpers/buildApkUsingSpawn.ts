@@ -7,7 +7,7 @@ import { debugApkDir, newAppSourceCodeDir, outputApksDir } from "../constants.js
 
 
 
-export let buildApkUsingSpawnFun = (orderId, ownerId, userName, newVersionCode): Promise<{
+export let buildApkUsingSpawnFun = (orderId,  apkFileName, newVersionCode): Promise<{
   status: 'success' | 'error',
   msg: string,
   data: any
@@ -53,7 +53,7 @@ export let buildApkUsingSpawnFun = (orderId, ownerId, userName, newVersionCode):
         if (code === 0) {
           // APK file generated, do something with it here
           const debugApk = join(debugApkDir, 'app-debug.apk');
-          const apkNewName = `${userName}V${newVersionCode}.apk`;
+          const apkNewName = `${apkFileName}.apk`;
           const renamedApk = join(debugApkDir, apkNewName);
           const outputApk = join(outputApksDir, apkNewName);
 

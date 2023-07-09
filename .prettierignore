@@ -1,0 +1,15 @@
+# Ignore artifacts:
+dist
+coverage
+
+.eslintrc.json
+
+.prettierrc.json
+
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+.vscode/**
+

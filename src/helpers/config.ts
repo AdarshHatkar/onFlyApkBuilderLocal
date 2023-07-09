@@ -18,7 +18,7 @@ export let apkHome: string;
 
 
 if (isLocalEnvironnement == true) {
-    restBaseUrl = 'http://192.168.100.9:3005/onFlyApkBuilder';
+    restBaseUrl = 'http://192.168.100.9:3005/web2Apk/v1';
 } else {
     restBaseUrl = 'https://mtaapi.primexop.com/onFlyApkBuilder';
 
@@ -26,6 +26,3 @@ if (isLocalEnvironnement == true) {
     
 }
 
-export let changeBaseUrl = ()=>{
-    restBaseUrl = 'https://api.gamerheart.in/onFlyApkBuilder';
-}
