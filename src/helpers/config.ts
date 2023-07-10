@@ -20,7 +20,7 @@ export let apkHome: string;
 if (isLocalEnvironnement == true) {
     restBaseUrl = 'http://192.168.100.9:3005/web2Apk/v1';
 } else {
-    restBaseUrl = 'https://mtaapi.primexop.com/onFlyApkBuilder';
+    restBaseUrl = 'https://mtaapi.primexop.com/web2Apk/v1';
 
 
     
